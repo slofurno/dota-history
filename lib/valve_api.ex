@@ -17,6 +17,20 @@ defmodule ValveApi do
     # https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=65C5ADADF141DB0495C3FBBCA6D65689&start_at_match_id=&account_id=
   end
 
+  @doc"""
+  given a match id, returns a `MatchDetails` struct
+
+      {
+        radiant_win: true
+        "players": [{
+            "account_id": 67760037,
+            "hero_id": 75,
+            "kills": 19,
+            "deaths": 4,
+            "assists": 19
+        }]
+      }
+  """
   def match_details(match) do
     url = "https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/V001/?key=65C5ADADF141DB0495C3FBBCA6D65689&match_id=#{match}"
 

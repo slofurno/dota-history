@@ -32,6 +32,7 @@ defmodule DotaHistory.Mixfile do
       {:plug, "~> 1.0"},
       {:httpoison, "~> 0.11.1"},
       {:poison, "~> 3.0"},
-      {:distillery, "~> 1.0"}]
+      {:distillery, "~> 1.0"},
+      {:ex_doc, "~> 0.14", only: :dev, runtime: false}]
   end
 end
