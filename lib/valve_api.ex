@@ -3,11 +3,7 @@ defmodule ValveApi do
 
   def player_history(id) do
     url = "https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=65C5ADADF141DB0495C3FBBCA6D65689&account_id=#{id}"
-
     %HTTPoison.Response{body: body} = HTTPoison.get!(url)
-
-    IO.inspect(body)
-
     %{"result" => %{matches: matches}} = Poison.decode!(body, as: %{"result" => %MatchHistoryResponse{matches: [%DotaMatch{players: [%DotaMatchPlayer{}]}]}})
 
     {:ok, matches}
